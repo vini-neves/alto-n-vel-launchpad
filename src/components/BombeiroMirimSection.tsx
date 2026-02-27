@@ -51,7 +51,7 @@ export default function BombeiroMirimSection() {
           </div>
 
           <a
-            href="https://wa.me/5500000000000?text=Quero%20saber%20sobre%20o%20Bombeiro%20Mirim%202025"
+            href="https://wa.me/5513997848842"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-semibold text-primary-foreground btn-primary-glow transition-all duration-300 hover:scale-105 animate-fade-in-up"

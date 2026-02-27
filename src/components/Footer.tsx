@@ -1,4 +1,5 @@
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa"; // Importei os dois da react-icons
 
 export default function Footer() {
   return (
@@ -22,7 +23,7 @@ export default function Footer() {
               <li className="flex items-center gap-3 text-sm text-white/60">
                 <MapPin size={16} className="text-crimson flex-shrink-0" />
                 <a
-                  href="https://maps.google.com/?q=R.+José+Antônio+de+Campos,+121"
+                  href="https://www.google.com/maps/search/?api=1&query=R.+José+Antônio+de+Campos,+121"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors"
@@ -30,13 +31,31 @@ export default function Footer() {
                   R. José Antônio de Campos, 121
                 </a>
               </li>
+              
+              {/* WhatsApp */}
               <li className="flex items-center gap-3 text-sm text-white/60">
-                <Phone size={16} className="text-crimson flex-shrink-0" />
-                Falar com Coord. Magali
+                <FaWhatsapp size={16} className="text-crimson flex-shrink-0" />
+                <a 
+                  href="https://wa.me/5513997848842" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors font-medium"
+                >
+                  +55 13 99784-8842
+                </a>
               </li>
+
+              {/* Instagram no lugar do e-mail */}
               <li className="flex items-center gap-3 text-sm text-white/60">
-                <Mail size={16} className="text-crimson flex-shrink-0" />
-                contato@altonivelcursos.com.br
+                <FaInstagram size={16} className="text-crimson flex-shrink-0" />
+                <a 
+                  href="https://instagram.com/centroeducacional_altonivel" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  @centroeducacional_altonivel
+                </a>
               </li>
             </ul>
           </div>
@@ -60,9 +79,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-xs text-white/30">
-            © 2025 Alto Nível Cursos Profissionalizantes. Todos os direitos reservados.
+            © 2026 Alto Nível Cursos Profissionalizantes. Todos os direitos reservados.
           </p>
           <p className="text-xs text-white/30">
             CNPJ: 53.598.909/0001-50

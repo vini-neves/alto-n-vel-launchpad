@@ -1,4 +1,5 @@
-import { Wifi, FlaskConical, Accessibility, Monitor } from "lucide-react";
+import { useState } from "react"; // Adicionado o useState
+import { TvMinimalPlay, FlaskConical, Accessibility, Monitor, BookOpen, HeartPulse, HardHat, Compass, Scale } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const graduationCourses = [
@@ -7,15 +8,53 @@ const graduationCourses = [
   "Administração", "Contabilidade", "Pedagogia", "Direito",
 ];
 
+const categories = [
+  { id: "todos", label: "Todos", icon: BookOpen },
+  { id: "saude", label: "Saúde e Bem-Estar", icon: HeartPulse },
+  { id: "engenharias", label: "Engenharias", icon: HardHat },
+  { id: "arquitetura", label: "Arquitetura e Design", icon: Compass },
+  { id: "humanas", label: "Sociais e Humanas", icon: Scale },
+];
+
+const courses = [
+  // Saúde e Bem-Estar
+  { title: "Biomedicina", category: "saude"},
+  { title: "Farmácia", category: "saude"},
+  { title: "Fisioterapia", category: "saude"},
+  { title: "Nutrição", category: "saude"},
+  { title: "Radiologia", category: "saude"},
+  { title: "Educação Física (Bacharel)", category: "saude"},
+
+  // Engenharias
+  { title: "Engenharia Agronômica", category: "engenharias"},
+  { title: "Engenharia Ambiental e Sanitária", category: "engenharias"},
+  { title: "Engenharia Civil", category: "engenharias"},
+  { title: "Engenharia de Produção", category: "engenharias"},
+  { title: "Engenharia Elétrica", category: "engenharias"},
+  { title: "Engenharia Mecânica", category: "engenharias"},
+  { title: "Engenharia Química", category: "engenharias"},
+
+  // Arquitetura e Design
+  { title: "Arquitetura e Urbanismo", category: "arquitetura"},
+  { title: "Design de Interiores", category: "arquitetura"},
+
+  // Sociais e Humanas
+  { title: "Ciências Jurídicas e Sociais", category: "humanas"},
+  { title: "Psicopedagogia", category: "humanas"},
+];
+
 const infra = [
-  { icon: Wifi, title: "Fibra 100Mbps", desc: "Conexão de alta velocidade" },
+  { icon: TvMinimalPlay, title: "Plataforma LMS integrada", desc: "EAD + videoaulas síncronas" },
   { icon: FlaskConical, title: "Laboratórios Ativos", desc: "Metodologias ativas" },
   { icon: Accessibility, title: "Acessibilidade", desc: "Inclusão total" },
   { icon: Monitor, title: "Salas Tech", desc: "Equipamentos modernos" },
 ];
 
 export default function GraduacaoSection() {
+  const [active, setActive] = useState("todos");
   const ref = useScrollReveal();
+
+  const filtered = active === "todos" ? courses : courses.filter((c) => c.category === active);
 
   return (
     <section id="graduacao" className="py-24 bg-muted" ref={ref}>
@@ -43,6 +82,39 @@ export default function GraduacaoSection() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Filter tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in-up">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActive(cat.id)}
+              className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 ${active === cat.id
+                  ? "bg-primary text-primary-foreground shadow-lg btn-primary-glow"
+                  : "bg-muted text-muted-foreground hover:bg-primary/10 hover:text-foreground"
+                }`}
+            >
+              <cat.icon size={16} />
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-20">
+          {filtered.map((course, i) => (
+            <div
+              key={course.title}
+              className="animate-fade-in-up group relative rounded-2xl border border-border bg-card p-6 hover:shadow-xl hover:scale-[1.03] transition-all duration-300 cursor-pointer"
+              style={{ animationDelay: `${i * 80}ms` }}
+            >
+              
+              <h3 className="font-display text-lg font-semibold text-card-foreground mt-2 mb-4 pr-16">
+                {course.title}
+              </h3>
+            </div>
+          ))}
         </div>
 
         {/* Infrastructure */}

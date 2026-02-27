@@ -11,18 +11,18 @@ const categories = [
 ];
 
 const courses = [
-  { title: "NR-35 Trabalho em Altura", category: "nr", hours: "8h", price: "R$ 120" },
-  { title: "NR-10 Segurança em Eletricidade", category: "nr", hours: "40h", price: "R$ 350" },
-  { title: "NR-33 Espaço Confinado", category: "nr", hours: "16h", price: "R$ 200" },
-  { title: "NR-06 EPI", category: "nr", hours: "8h", price: "R$ 100" },
-  { title: "APH - Atendimento Pré-Hospitalar", category: "saude", hours: "120h", price: "R$ 890" },
-  { title: "Primeiros Socorros", category: "saude", hours: "20h", price: "R$ 180" },
-  { title: "Cuidador de Idosos", category: "saude", hours: "80h", price: "R$ 450" },
-  { title: "Reciclagem DETRAN", category: "detran", hours: "30h", price: "R$ 250" },
-  { title: "Instrutor de Trânsito", category: "detran", hours: "200h", price: "R$ 1.200" },
-  { title: "Direção Defensiva", category: "detran", hours: "16h", price: "R$ 150" },
-  { title: "Bombeiro Mirim 2025", category: "formacao", hours: "Anual", price: "Consulte" },
-  { title: "Liderança e Cidadania", category: "formacao", hours: "40h", price: "R$ 280" },
+  { title: "NR-35 Trabalho em Altura", category: "nr", hours: "8h"},
+  { title: "NR-10 Segurança em Eletricidade", category: "nr", hours: "40h"},
+  { title: "NR-33 Espaço Confinado", category: "nr", hours: "16h"},
+  { title: "NR-06 EPI", category: "nr", hours: "8h"},
+  { title: "APH - Atendimento Pré-Hospitalar", category: "saude", hours: "120h"},
+  { title: "Primeiros Socorros", category: "saude", hours: "20h"},
+  { title: "Cuidador de Idosos", category: "saude", hours: "80h"},
+  { title: "Reciclagem DETRAN", category: "detran", hours: "30h"},
+  { title: "Instrutor de Trânsito", category: "detran", hours: "200h"},
+  { title: "Direção Defensiva", category: "detran", hours: "16h"},
+  { title: "Bombeiro Mirim", category: "formacao", hours: "36h"},
+  { title: "Liderança e Cidadania", category: "formacao", hours: "40h"},
 ];
 
 export default function CoursesSection() {
@@ -75,12 +75,6 @@ export default function CoursesSection() {
               <h3 className="font-display text-lg font-semibold text-card-foreground mt-2 mb-4 pr-16">
                 {course.title}
               </h3>
-              <div className="flex items-end justify-between">
-                <span className="text-xl font-bold text-foreground">{course.price}</span>
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowUpRight size={18} className="text-primary" />
-                </div>
-              </div>
             </div>
           ))}
         </div>

@@ -5,7 +5,6 @@ import AphSection from "@/components/AphSection";
 import BombeiroMirimSection from "@/components/BombeiroMirimSection";
 import GraduacaoSection from "@/components/GraduacaoSection";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -17,7 +16,6 @@ const Index = () => {
       <BombeiroMirimSection />
       <GraduacaoSection />
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 };
